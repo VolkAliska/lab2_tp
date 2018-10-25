@@ -6,10 +6,12 @@ int main() {
 	string sent, buf;
 	int bufsize;
 	ifstream file;
-	file.open("file.txt", ios::in);
-	if(!file){
-		cout << "error open file" << endl;
+	try{
+		file.open("file.txt", ios::in);
 	}
+	catch(const ifstream::failure& e){
+		cout << "Exception opening/reading file";
+    }
 	int flag = 0; // no dots in line
 	int lastdot;
 	while(file){

@@ -1,11 +1,12 @@
-﻿Построение начато 25.10.2018 12:26:24.
+﻿Построение начато 25.10.2018 15:55:31.
      1>Проект "D:\tp2\tp2\tp2.vcxproj" в узле 2 (целевые объекты build).
      1>InitializeBuildStatus:
          Создание "Debug\tp2.unsuccessfulbuild", так как было задано "AlwaysCreate".
        ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt tp2.cpp
          tp2.cpp
-     1>d:\tp2\tp2\tp2.cpp(27): warning C4018: <: несоответствие типов со знаком и без знака
+     1>d:\tp2\tp2\tp2.cpp(30): warning C4018: <: несоответствие типов со знаком и без знака
+     1>d:\tp2\tp2\tp2.cpp(13): warning C4101: e: неиспользованная локальная переменная
        ManifestResourceCompile:
          Для всех выходных данных обновления не требуется.
        Link:
@@ -25,4 +26,4 @@
 
 Построение успешно завершено.
 
-Затраченное время: 00:00:04.61
+Затраченное время: 00:00:04.55
