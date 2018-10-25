@@ -8,9 +8,8 @@ int main() {
 	ifstream file;
 	file.open("file.txt", ios::in);
 	if(!file){
-		cout << "error" << endl;
+		cout << "error open file" << endl;
 	}
-	cout << "reading" << endl;
 	int flag = 0; // no dots in line
 	int lastdot;
 	while(file){
@@ -25,6 +24,12 @@ int main() {
 				lastdot = i+1;
 				flag = 1;
 		        cout << sent << endl;
+				for(int i = 0; i < sent.size(); i++){
+					if(sent[i] == ','){
+						cout << sent << endl;
+						break;
+					}
+				}
 				sent = "";
 			}
 			else{
