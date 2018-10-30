@@ -25,7 +25,7 @@ int main() {
 				sent = sent + buf.substr(lastdot, i+1);
 				lastdot = i+1;
 				flag = 1;
-		        cout << sent << endl;
+		        //cout << sent << endl;
 				for(int i = 0; i < sent.size(); i++){
 					if(sent[i] == ','){
 						cout << sent << endl;
