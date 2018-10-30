@@ -12,27 +12,30 @@ int main() {
 	catch(const ifstream::failure& e){
 		cout << "Exception opening/reading file";
     }
-	int flag = 0; // no dots in line
+	int flag, flagz; // no "." / no ","
 	int lastdot;
 	while(file){
-
+		/*
+		В переменную sent помещается обрабатываемое в данный момент предложение.
+		Принимается, что предложения разделяются точкой. 
+		До момента нахождения следующей точки происходит анализ предложения на наличие запятой.
+		*/
 		flag = 0;
 		lastdot = 0;
 		getline(file, buf);
 		bufsize = buf.size();
 		for (int i = 0; i < bufsize; i++){
+			if (buf[i] == ','){
+				flagz = 1;
+			}
 			if (buf[i] == '.'){
 				sent = sent + buf.substr(lastdot, i+1);
 				lastdot = i+1;
 				flag = 1;
-		        //cout << sent << endl;
-				for(int i = 0; i < sent.size(); i++){
-					if(sent[i] == ','){
-						cout << sent << endl;
-						break;
-					}
-				}
+				if (flagz == 1)
+					cout << sent << endl;
 				sent = "";
+				flagz = 0;
 			}
 			else{
 				if((buf[i] != ' ') && (buf[i] != '\n'))
