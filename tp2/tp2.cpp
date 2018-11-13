@@ -11,8 +11,9 @@ int main() {
 	}
 	catch(const ifstream::failure& e){
 		cout << "Exception opening/reading file";
+		exit(EXIT_FAILURE);
     }
-	int flag, flagz; // no "." / no ","
+	int isPointInLine, isCommaInSent; // no "." / no ","
 	int lastdot;
 	while(file){
 		/*
@@ -20,29 +21,25 @@ int main() {
 		Принимается, что предложения разделяются точкой. 
 		До момента нахождения следующей точки происходит анализ предложения на наличие запятой.
 		*/
-		flag = 0;
+		isPointInLine = 0;
 		lastdot = 0;
 		getline(file, buf);
 		bufsize = buf.size();
 		for (int i = 0; i < bufsize; i++){
 			if (buf[i] == ','){
-				flagz = 1;
+				isCommaInSent = 1;
 			}
 			if (buf[i] == '.'){
 				sent = sent + buf.substr(lastdot, i+1);
 				lastdot = i+1;
-				flag = 1;
-				if (flagz == 1)
+				isPointInLine = 1;
+				if (isCommaInSent == 1)
 					cout << sent << endl;
 				sent = "";
-				flagz = 0;
-			}
-			else{
-				if((buf[i] != ' ') && (buf[i] != '\n'))
-					flag = 0;
+				isCommaInSent = 0;
 			}
 		}
-		if (flag == 0){
+		if (isPointInLine == 0){
 			sent = sent + buf.substr(lastdot);
 		}
 		if (file.eof())
